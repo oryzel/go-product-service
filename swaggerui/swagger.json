@@ -1,0 +1,218 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This is a sample product service.  You can find out more about Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/)",
+        "version": "1.0.2",
+        "title": "Swagger Product",
+        "termsOfService": "http://swagger.io/terms/",
+        "contact": {
+            "email": "sabriyanagung@gmail.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        }
+    },
+    "host": "127.0.0.1:2345",
+    "basePath": "/products",
+    "tags": [
+        {
+            "name": "products",
+            "description": "Everything about your Product",
+            "externalDocs": {
+                "description": "Find out more",
+                "url": "http://swagger.io"
+            }
+        }
+    ],
+    "schemes": [
+        "https",
+        "http"
+    ],
+    "paths": {
+        "/products": {
+            "post": {
+                "tags": [
+                    "products"
+                ],
+                "summary": "Insert new product",
+                "description": "",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Insert new product",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Products"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/Products"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid Order"
+                    }
+                }
+            },
+            "get": {
+                "tags": [
+                    "products"
+                ],
+                "summary": "Returns all products",
+                "description": "Returns all products",
+                "operationId": "getInventory",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "type" : "array",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Products"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/products/{:id}": {
+            "get": {
+                "tags": [
+                    "products"
+                ],
+                "summary": "Returns detail product by id",
+                "description": "Returns a map of status codes to quantities",
+                "operationId": "getInventory",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description":"successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/Products"
+                        }
+                    },
+                    "404": {
+                        "description": "Your requested item is not found"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "products"
+                ],
+                "summary": "Update product",
+                "description": "",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Update new product",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Products"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/Products"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid Order"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "products"
+                ],
+                "summary": "Delete product",
+                "description": "",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Delete product"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful delete product"
+                    },
+                    "404": {
+                        "description": "Your requested item is not found"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Products": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "format": "int64",
+                    "example" : 1
+                },
+                "name": {
+                    "type": "string",
+                    "example" : "Obeng"
+                },
+                "sku": {
+                    "type": "string",
+                    "example" : "OB12234BL"
+                },
+                "type": {
+                    "type": "string",
+                    "example": "perkakas"
+                },
+                "category": {
+                    "type": "integer",
+                    "format" : "int64",
+                    "example" : 1
+                },
+                "created_at": {
+                    "type": "string",
+                    "format" : "date-time"
+                },
+                "updated_at": {
+                    "type": "string",
+                    "format" : "date-time"
+                }
+            },
+            "xml": {
+                "name": "Products"
+            }
+        }
+    },
+    "externalDocs": {
+        "description": "Find out more about Swagger",
+        "url": "http://swagger.io"
+    }
+}
