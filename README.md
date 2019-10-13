@@ -26,8 +26,25 @@ $ go version
 ```
 ##### clone project on gopath directory
 ```bash
-$  cd $GOPATH/src/github.com/oryzel
+$ cd $GOPATH/src/github.com/oryzel
 $ git clone https://github.com/oryzel/go-product-service.git
 ```
 
 >you must change config.json for database value appropriate to your database on machine
+
+after that you can run your first golang app using this command
+```bash
+$  cd $GOPATH/src/github.com/oryzel/go-product-service
+$  git run ./main.go
+Service run on port :1001
+
+   ____    __
+  / __/___/ /  ___
+ / _// __/ _ \/ _ \
+/___/\__/_//_/\___/ v4.1.11
+High performance, minimalist Go web framework
+https://echo.labstack.com
+____________________________________O/_______
+                                    O\
+⇨ http server started on [::]:1001
+```
