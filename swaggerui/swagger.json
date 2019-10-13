@@ -13,7 +13,7 @@
             "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
         }
     },
-    "host": "127.0.0.1:2345",
+    "host": "127.0.0.1:1001",
     "basePath": "/products",
     "tags": [
         {
@@ -73,7 +73,15 @@
                 "produces": [
                     "application/json"
                 ],
-                "parameters": [],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "num",
+                        "description": "the number of many product you want get",
+                        "required": false,
+                        "type" : "integer"
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "successful operation",
@@ -88,7 +96,7 @@
                 }
             }
         },
-        "/products/{:id}": {
+        "/products/{id}": {
             "get": {
                 "tags": [
                     "products"
