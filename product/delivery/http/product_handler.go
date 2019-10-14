@@ -143,7 +143,7 @@ func (p *ProductHandler) Delete(c echo.Context) error {
 		return c.JSON(getStatusCode(err), ResponseError{Message: err.Error()})
 	}
 
-	return c.JSON(http.StatusCreated, "Success Delete id")
+	return c.JSON(http.StatusCreated, "Success delete product")
 }
 
 func isRequestValid(m *models.Product) (bool, error) {
